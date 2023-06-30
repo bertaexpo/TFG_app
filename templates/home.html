@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block contenido %}
+<div id="btn-group-demo">
+
+    <!-- Button trigger modal -->
+    <a href="/chat/option1" type="button" class="btn btn-primary">
+      Planificar classe
+    </a>
+    <a href="/chat/option2" type="button" class="btn btn-primary">
+        Corregir redacció
+    </a>
+    <a href="/chat/option3" type="button" class="btn btn-primary">
+        Generar preguntes d'examen
+    </a>
+    <a href="/chat/option4" type="button" class="btn btn-primary">
+        Redactar correu electrònic
+    </a>
+    <a href="/chat/option5" type="button" class="btn btn-primary">
+        Crear problemes matemàtics
+    </a>
+    <a href="/chat/option6" type="button" class="btn btn-primary">
+        Crear activitats o jocs interactius
+    </a>
+    <a href="/chat/option7" type="button" class="btn btn-primary">
+        Explicar concepte nou
+    </a>
+  </div>
+{% endblock %}
+
+{% block js %}
+{% endblock %}

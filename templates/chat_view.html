@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Chat: {{ chat.title }}{% endblock %}
+
+{% block contenido %}
+{% csrf_token %}
+<div class="container_chat">
+    <div class="top">
+        <div class="AvatarBot">
+            <img src="{% static 'img/bot.png' %}" alt="BotProfesor">
+        </div>
+        <div class="InfoBot">
+            <p class="TitleBot">Bot</p>
+            <p class="status">Online</p>
+        </div>
+    </div>
+    <div class="ContentChat" id="ContentChat">
+        {% for line in chat_lines %}
+            {% if line.is_bot %}
+                <div class="captionBot msgCaption"><img src="https://raw.githubusercontent.com/emnatkins/cdn-codepen/main/wvjGzXp/6569264.png" alt="BotProfesor"> <span>BotProfesor</span></div>
+                <div class="massage">
+                    <div class="bot-response text" text-first="true">{{ line.content }}</div>
+                </div>
+            {% else %}
+                <div class="massage msgCaption" data-user="true"><span class="captionUser">Tú</span></div>
+                <div class="massage" data-user="true"><div class="user-response">{{ line.content }}</div></div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <span class="by">
+        <span>Realitzat per</span>
+    <a target="_blank " href="#" style="color: rgb(18, 91, 251); ">Berta</a>
+    </span>
+
+    
+</div>
+{% endblock %}

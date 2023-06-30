@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Històric de xats guardats{% endblock %}
+
+{% block contenido %}
+<div class="container mt-2">
+    <div class="row">
+        {% if chats %}
+            {% for chat in chats %}
+                <div class="col-md-3 col-sm-6 item">
+                    <div class="card item-card card-block">
+                        <h6 class="card-title text-right"><i class="material-icons">{{ chat.title }}</i></h6>
+                        <img class="img_card" src="{% static 'img/chat.jpeg' %}" alt="Title">
+                        <h5 class="item-card-title mt-3 mb-3">{{ chat.created_at }}</h5>
+                        <p class="card-text">{{ chat.description }}</p> 
+                    </div>
+                    <a class="btn btn-primary" href="/chat/view/{{ chat.id }}">Ver</a>
+                    <a class="btn btn-danger" href="/chat/delete/{{ chat.id }}">Eliminar</a>
+                    
+                </div>
+            {% endfor %}
+        {% else %}
+            <h1>No existeixen xats guardats</h1>
+        {% endif %}
+    </div>
+</div>
+    
+{% endblock %}
+
+{% block js %}
+{% endblock %}
